@@ -8,7 +8,7 @@ class Map(object):
         self.points = 0
 
     def ClearMap(self):
-        print("\n" * 100)
+        print("\n" * 25)
         self.mapMatrix = [[0 for i in range(self.width)] for j in range(self.height)]
         for i in range(self.height):
             for j in range(self.width):
@@ -50,7 +50,6 @@ class Map(object):
         self.CheckIfLineIsFull()
 
     def CheckCollision(self, brick):
-        print(str(brick.posWidth + len(brick.shape)) + " " + str(self.height))
         for lines in range(len(brick.shape)):
             for itemInLine in range(len(brick.shape[lines])):
                 if brick.posWidth + len(brick.shape) >= self.height:
@@ -62,16 +61,13 @@ class Map(object):
         return False
 
     def DropBrick(self, brick):
-        print(str(brick.posWidth + len(brick.shape)) + " " + str(self.height))
         brick.posWidth += 1
 
     def MoveLeft(self, brick):
-        print(str(brick.posWidth + len(brick.shape)) + " " + str(self.height))
         if brick.posHeight > 0:
             brick.posHeight -= 1
 
     def MoveRight(self, brick):
-        print(str(brick.posWidth + len(brick.shape)) + " " + str(self.height))
         if brick.posHeight + len(brick.shape[0]) < self.width:
             brick.posHeight += 1
 
